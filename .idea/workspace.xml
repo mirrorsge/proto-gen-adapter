@@ -20,7 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4fbda47-d685-4212-88ff-51a8841a5780" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adapter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +60,12 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,9 +92,21 @@
     </environment>
   </component>
   <component name="WindowStateProjectService">
-    <state x="196" y="-901" key="SettingsEditor" timestamp="1611567345428">
+    <state x="151" y="-878" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611639030214">
       <screen x="-273" y="-1080" width="1920" height="1080" />
     </state>
-    <state x="196" y="-901" key="SettingsEditor/0.0.1440.900/-273.-1080.1920.1080@-273.-1080.1920.1080" timestamp="1611567345428" />
+    <state x="151" y="-878" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/-273.-1080.1920.1080@-273.-1080.1920.1080" timestamp="1611639030214" />
+    <state x="351" y="-755" key="EditFileWatcherDialog" timestamp="1611632023756">
+      <screen x="-273" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="351" y="-755" key="EditFileWatcherDialog/0.0.1440.900/-273.-1080.1920.1080@-273.-1080.1920.1080" timestamp="1611632023756" />
+    <state x="196" y="-901" key="SettingsEditor" timestamp="1611632024886">
+      <screen x="-273" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="196" y="-901" key="SettingsEditor/0.0.1440.900/-273.-1080.1920.1080@-273.-1080.1920.1080" timestamp="1611632024886" />
+    <state x="412" y="-801" width="584" height="522" key="find.popup" timestamp="1611578951412">
+      <screen x="-273" y="-1080" width="1920" height="1080" />
+    </state>
+    <state x="412" y="-801" width="584" height="522" key="find.popup/0.0.1440.900/-273.-1080.1920.1080@-273.-1080.1920.1080" timestamp="1611578951412" />
   </component>
 </project>
