@@ -5,16 +5,19 @@ import (
 	"google.golang.org/protobuf/compiler/protogen"
 	"html/template"
 	"log"
+	"strings"
 )
 
 // 定义模块
 const tmplService = `
 {{$root := .}}
 
+var (
+	grpc_service_key = "{{.GrpcServiceKey}}"
+)
 var AlphaAdapter *{{.ServiceName}}Service
 func init() {
-	consul.RegisterResolver("consul", &consulapi.Config{Address: "http://consul.aphrolime.top"}, "alpha:1.0")
-	conn, err := grpc.Dial("consul:///", grpc.WithInsecure(), grpc.WithBalancerName(balancer.RoundRobin))
+	conn,err := grpclb.ResolveService(grpc_service_key)
 	if err != nil {
 		grpclog.Error("init adapter file error,err is ",err)
 		return 
@@ -39,8 +42,9 @@ func (p *{{$root.ServiceName}}Service) {{$m.MethodName}}(ctx context.Context, in
 
 // 定义服务和接口描述结构
 type ServiceSpec struct {
-	ServiceName string
-	MethodList  []ServiceMethodSpec
+	GrpcServiceKey string
+	ServiceName    string
+	MethodList     []ServiceMethodSpec
 }
 
 type ServiceMethodSpec struct {
@@ -75,10 +79,7 @@ func generateFileContent(file *protogen.File, g *protogen.GeneratedFile) {
 
 func genImportant(file *protogen.File, g *protogen.GeneratedFile) {
 	g.P("import (")
-	g.P("consulapi", " \"github.com/hashicorp/consul/api\"")
-	g.P("\"github.com/mirrorsge/grpc-lb/registry/consul\"")
-	g.P("\"github.com/mirrorsge/grpc-lb/balancer\"")
-	g.P("\"google.golang.org/grpc\"")
+	g.P("grpclb", "\"github.com/mirrorsge/grpc-lb\"")
 	g.P("\"context\"")
 	g.P("\"google.golang.org/grpc/grpclog\"")
 	g.P(")")
@@ -98,7 +99,7 @@ func genService(file *protogen.File, g *protogen.GeneratedFile) {
 
 // 解析每个服务的ServiceSpec元信息
 func buildServiceSpec(svc *protogen.Service, g *protogen.GeneratedFile) *ServiceSpec {
-	spec := &ServiceSpec{ServiceName: svc.GoName}
+	spec := &ServiceSpec{ServiceName: svc.GoName, GrpcServiceKey: strings.ToLower(svc.GoName)}
 	for _, m := range svc.Methods {
 		spec.MethodList = append(spec.MethodList, ServiceMethodSpec{
 			MethodName:     m.GoName,
